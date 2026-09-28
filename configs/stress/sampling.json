@@ -1,0 +1,133 @@
+{
+  "id": "X03_full_fusion_sampling_v1",
+  "seeds": [
+    2026092401,
+    2026092402,
+    2026092403,
+    2026092404,
+    2026092405,
+    2026092406,
+    2026092407,
+    2026092408,
+    2026092409,
+    2026092410
+  ],
+  "cases": [
+    {
+      "id": "hz10_phase0",
+      "hz": 10,
+      "phase": 0
+    },
+    {
+      "id": "hz10_phase0.25",
+      "hz": 10,
+      "phase": 0.25
+    },
+    {
+      "id": "hz10_phase0.5",
+      "hz": 10,
+      "phase": 0.5
+    },
+    {
+      "id": "hz10_phase0.75",
+      "hz": 10,
+      "phase": 0.75
+    },
+    {
+      "id": "hz2_phase0",
+      "hz": 2,
+      "phase": 0
+    },
+    {
+      "id": "hz2_phase0.25",
+      "hz": 2,
+      "phase": 0.25
+    },
+    {
+      "id": "hz2_phase0.5",
+      "hz": 2,
+      "phase": 0.5
+    },
+    {
+      "id": "hz2_phase0.75",
+      "hz": 2,
+      "phase": 0.75
+    },
+    {
+      "id": "hz1_phase0",
+      "hz": 1,
+      "phase": 0
+    },
+    {
+      "id": "hz1_phase0.25",
+      "hz": 1,
+      "phase": 0.25
+    },
+    {
+      "id": "hz1_phase0.5",
+      "hz": 1,
+      "phase": 0.5
+    },
+    {
+      "id": "hz1_phase0.75",
+      "hz": 1,
+      "phase": 0.75
+    },
+    {
+      "id": "hz0.5_phase0",
+      "hz": 0.5,
+      "phase": 0
+    },
+    {
+      "id": "hz0.5_phase0.25",
+      "hz": 0.5,
+      "phase": 0.25
+    },
+    {
+      "id": "hz0.5_phase0.5",
+      "hz": 0.5,
+      "phase": 0.5
+    },
+    {
+      "id": "hz0.5_phase0.75",
+      "hz": 0.5,
+      "phase": 0.75
+    },
+    {
+      "id": "hz0.1_phase0",
+      "hz": 0.1,
+      "phase": 0
+    },
+    {
+      "id": "hz0.1_phase0.25",
+      "hz": 0.1,
+      "phase": 0.25
+    },
+    {
+      "id": "hz0.1_phase0.5",
+      "hz": 0.1,
+      "phase": 0.5
+    },
+    {
+      "id": "hz0.1_phase0.75",
+      "hz": 0.1,
+      "phase": 0.75
+    }
+  ],
+  "source": "new200Hz native solver event output, rightcontinuous boundary sample within1e-6s; snap selected times to exact acquisition clock; no cross-current interpolation",
+  "reference": "200Hz noise-free feature reference;100Hz noise-free convergence diagnostic;10Hz phase0 detector/threshold reference",
+  "noise": "matched white observation noise on union40Hz acquisition ticks, same cell/event draws for all sample subsets; not sampling-rate-dependent physical noise spectrum",
+  "roles": "same408 calibration role1 and test role2 as native high_rate_v1; frozen source model rather than new healthy-trained native reference",
+  "quality": "algorithm_all, raw_minimum, raw_strict3 evaluated separately; whole40cell event masked; preserve original causal history; not adopted deployment guards",
+  "thresholds": "reference10Hz phase0 vs matchedhealthy per rate/phase and view; if healthy view empty threshold undefined; no test labels",
+  "methods": [
+    "canonical_peer",
+    "full_fusion"
+  ],
+  "statistics": "descriptive all10seeds, missing retained; no pvalues",
+  "current": "synchronous battery and UPS acquisition at same rate/phase; original interpolation of each channel",
+  "expected_metric_rows": 2400,
+  "missing_rate": "zero for all cases: scheduled lower rates are not missing observations",
+  "checkpoint": "same frozen development model and corrected full_fusion_transfer_v2; no training",
+  "scope": "nominal controlled physical library,200Hz native dense solver outputs; fixed original128point model interpolation after subsampling; not field sampling validation"
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+outputs/
+*.log
+.mplconfig/
+*.sqlite3
+
+# Large data/model directories are delivered as GitHub Release assets.
+/data/
+/models/
+/release_assets/
+
+.cache/

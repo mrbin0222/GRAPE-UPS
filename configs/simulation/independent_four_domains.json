@@ -1,0 +1,146 @@
+{
+  "contract": "independent_physics_confirmatory_v1",
+  "status": "frozen_before_five_seed_confirmation",
+  "generator": {
+    "engine": "PyBaMM",
+    "version": "26.6.2.0",
+    "chemistry": "lead-acid",
+    "model": "LOQS",
+    "parameter_set": "Sulzer2019",
+    "thermal_model": "lumped",
+    "event": {
+      "pre_event_rest_s": 10,
+      "discharge_s": 120,
+      "post_event_rest_s": 120,
+      "sample_period_s": 2
+    }
+  },
+  "domains": {
+    "nominal": [
+      {
+        "c_rate": 0.25,
+        "ambient_k": 294.85,
+        "initial_soc": 0.95
+      },
+      {
+        "c_rate": 0.45,
+        "ambient_k": 294.85,
+        "initial_soc": 0.95
+      },
+      {
+        "c_rate": 0.65,
+        "ambient_k": 294.85,
+        "initial_soc": 0.95
+      }
+    ],
+    "load_ood": [
+      {
+        "c_rate": 0.15,
+        "ambient_k": 294.85,
+        "initial_soc": 0.95
+      },
+      {
+        "c_rate": 0.85,
+        "ambient_k": 294.85,
+        "initial_soc": 0.95
+      }
+    ],
+    "temperature_ood": [
+      {
+        "c_rate": 0.45,
+        "ambient_k": 278.15,
+        "initial_soc": 0.95
+      },
+      {
+        "c_rate": 0.45,
+        "ambient_k": 313.15,
+        "initial_soc": 0.95
+      }
+    ],
+    "combined_ood": [
+      {
+        "c_rate": 0.85,
+        "ambient_k": 278.15,
+        "initial_soc": 0.85
+      },
+      {
+        "c_rate": 0.85,
+        "ambient_k": 313.15,
+        "initial_soc": 0.85
+      }
+    ]
+  },
+  "latent_fault_families": {
+    "acid_inventory_loss": {
+      "parameter": "Initial concentration in electrolyte [mol.m-3]",
+      "multipliers": [
+        0.9,
+        0.75,
+        0.6
+      ]
+    },
+    "active_material_loss": {
+      "parameters": [
+        "Negative electrode thickness [m]",
+        "Positive electrode thickness [m]"
+      ],
+      "multipliers": [
+        0.85,
+        0.65,
+        0.45
+      ]
+    },
+    "interfacial_kinetics_loss": {
+      "parameters": [
+        "Negative electrode exchange-current density [A.m-2]",
+        "Positive electrode exchange-current density [A.m-2]"
+      ],
+      "multipliers": [
+        0.75,
+        0.55,
+        0.35
+      ]
+    },
+    "pore_blockage": {
+      "parameters": [
+        "Maximum porosity of negative electrode",
+        "Maximum porosity of positive electrode"
+      ],
+      "multipliers": [
+        0.9,
+        0.75,
+        0.6
+      ]
+    }
+  },
+  "sampling": {
+    "n_units": 40,
+    "n_events_per_domain": 30,
+    "n_fault_units_per_event": 4,
+    "roles": [
+      "validation",
+      "test"
+    ],
+    "development_seeds": [
+      20260911,
+      20260912,
+      20260913,
+      20260914,
+      20260915
+    ]
+  },
+  "acquisition_variation": {
+    "unit_voltage_offset_sd_v": 0.004,
+    "unit_temperature_offset_sd_k": 0.05,
+    "event_common_voltage_shift_sd_v": 0.01,
+    "voltage_noise_sd_v": 0.002,
+    "temperature_noise_sd_k": 0.01
+  },
+  "separation_contract": {
+    "generator_imports_detector_cue_map": false,
+    "generator_imports_grape_model": false,
+    "faults_defined_only_by_latent_physical_parameters": true,
+    "post_generation_scoring": "separate evaluator"
+  },
+  "freeze_note": "All four development families were retained unchanged, including pore blockage, which was weak in the one-seed development check. No family, severity, domain, or acquisition parameter was modified after viewing development metrics."
+}

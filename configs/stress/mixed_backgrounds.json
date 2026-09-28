@@ -1,0 +1,96 @@
+{
+  "id": "X04B_full_fusion_transfer_v2",
+  "checkpoint_dataset": "revision_dev_medium_s2026092100",
+  "seeds": [
+    2026092401,
+    2026092402,
+    2026092403,
+    2026092404,
+    2026092405,
+    2026092406,
+    2026092407,
+    2026092408,
+    2026092409,
+    2026092410
+  ],
+  "backgrounds": [
+    "nominal",
+    "design_low",
+    "design_high",
+    "age_fresh",
+    "age_stressed"
+  ],
+  "scenarios": [
+    {
+      "id": "nominal_0",
+      "background": "nominal",
+      "n_heterogeneous": 0
+    },
+    {
+      "id": "design_low_4",
+      "background": "design_low",
+      "n_heterogeneous": 4
+    },
+    {
+      "id": "design_low_10",
+      "background": "design_low",
+      "n_heterogeneous": 10
+    },
+    {
+      "id": "design_low_16",
+      "background": "design_low",
+      "n_heterogeneous": 16
+    },
+    {
+      "id": "design_high_4",
+      "background": "design_high",
+      "n_heterogeneous": 4
+    },
+    {
+      "id": "design_high_10",
+      "background": "design_high",
+      "n_heterogeneous": 10
+    },
+    {
+      "id": "design_high_16",
+      "background": "design_high",
+      "n_heterogeneous": 16
+    },
+    {
+      "id": "age_fresh_4",
+      "background": "age_fresh",
+      "n_heterogeneous": 4
+    },
+    {
+      "id": "age_fresh_10",
+      "background": "age_fresh",
+      "n_heterogeneous": 10
+    },
+    {
+      "id": "age_fresh_16",
+      "background": "age_fresh",
+      "n_heterogeneous": 16
+    },
+    {
+      "id": "age_stressed_4",
+      "background": "age_stressed",
+      "n_heterogeneous": 4
+    },
+    {
+      "id": "age_stressed_10",
+      "background": "age_stressed",
+      "n_heterogeneous": 10
+    },
+    {
+      "id": "age_stressed_16",
+      "background": "age_stressed",
+      "n_heterogeneous": 16
+    }
+  ],
+  "role": "frozen development-model domain transfer; no physics retraining or modelseed replication; not universal closure of fullfusion stress",
+  "feature_contract": "original128point grid and interpolation, 5channel relative and3channel absolute sequences; original causal drift features; original imputers/scalers/components/weights",
+  "missing_inputs": "RSSI and UPS load percent unknown -> NaN -> original frozen healthy-training median imputation; no invented field measurements",
+  "calibration": "36 independent physical healthy events per background mixture; nominal transfer and matchedhealthy99quantiles frozen before testscoring",
+  "evaluation": "36 healthy test events A and36 four-fault events B;12variants3events each; same observation noise; fixed13staticmixscenarios; no dynamic performance claim",
+  "statistics": "10physicalseeds, same single frozen model; descriptive meansSD, no pvalues; historical mixed_v1 native-feature scores not identical preprocessing"
+}

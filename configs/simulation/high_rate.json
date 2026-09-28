@@ -1,0 +1,223 @@
+{
+  "id": "X03_high_rate_v1",
+  "research_role": "native solver dense event output for sampling and phase evaluation",
+  "models": {
+    "primary": "Full",
+    "parameter_set": "Sulzer2019",
+    "thermal": "lumped",
+    "spatial_points": {
+      "x_n": 50,
+      "x_s": 82,
+      "x_p": 68
+    },
+    "solver": "IDAKLUSolver",
+    "rtol": 1e-08,
+    "atol": 1e-08,
+    "solver_threads": 1
+  },
+  "domains": [
+    {
+      "id": "nominal",
+      "current_a": 38.0,
+      "ambient_k": 298.15,
+      "discharge_s": 120,
+      "removed_fraction": 0.2,
+      "design_thickness": 1.0,
+      "age_acid": 0.975,
+      "age_kinetics": 0.9
+    }
+  ],
+  "physical_seeds": [
+    2026092401,
+    2026092402,
+    2026092403,
+    2026092404,
+    2026092405,
+    2026092406,
+    2026092407,
+    2026092408,
+    2026092409,
+    2026092410
+  ],
+  "development_seed": 2026092123,
+  "development_domains": [
+    "nominal",
+    "combined_high",
+    "combined_cold"
+  ],
+  "development_severities": [
+    0,
+    3
+  ],
+  "variants": [
+    {
+      "family": "normal",
+      "multiplier": 1.0,
+      "severity_index": 0
+    },
+    {
+      "family": "acid_inventory_loss",
+      "multiplier": 0.9,
+      "severity_index": 1
+    },
+    {
+      "family": "acid_inventory_loss",
+      "multiplier": 0.75,
+      "severity_index": 2
+    },
+    {
+      "family": "acid_inventory_loss",
+      "multiplier": 0.6,
+      "severity_index": 3
+    },
+    {
+      "family": "active_material_loss",
+      "multiplier": 0.85,
+      "severity_index": 1
+    },
+    {
+      "family": "active_material_loss",
+      "multiplier": 0.65,
+      "severity_index": 2
+    },
+    {
+      "family": "active_material_loss",
+      "multiplier": 0.45,
+      "severity_index": 3
+    },
+    {
+      "family": "interfacial_kinetics_loss",
+      "multiplier": 0.75,
+      "severity_index": 1
+    },
+    {
+      "family": "interfacial_kinetics_loss",
+      "multiplier": 0.55,
+      "severity_index": 2
+    },
+    {
+      "family": "interfacial_kinetics_loss",
+      "multiplier": 0.35,
+      "severity_index": 3
+    },
+    {
+      "family": "pore_blockage",
+      "multiplier": 0.9,
+      "severity_index": 1
+    },
+    {
+      "family": "pore_blockage",
+      "multiplier": 0.75,
+      "severity_index": 2
+    },
+    {
+      "family": "pore_blockage",
+      "multiplier": 0.6,
+      "severity_index": 3
+    }
+  ],
+  "background_multipliers": {
+    "acid_concentration": [
+      0.98,
+      1.02
+    ],
+    "negative_thickness": [
+      0.95,
+      1.05
+    ],
+    "positive_thickness": [
+      0.95,
+      1.05
+    ],
+    "negative_porosity": [
+      0.97,
+      1.03
+    ],
+    "positive_porosity": [
+      0.97,
+      1.03
+    ],
+    "negative_kinetics": [
+      0.95,
+      1.05
+    ],
+    "positive_kinetics": [
+      0.95,
+      1.05
+    ]
+  },
+  "event": {
+    "conditioning_current_a": 1.7,
+    "nominal_capacity_ah": 17.0,
+    "rest_after_conditioning_s": 600,
+    "pre_event_rest_s": 10,
+    "post_event_rest_s": 120,
+    "sample_period_s": 0.005
+  },
+  "sampling": {
+    "n_units": 40,
+    "n_events": 30,
+    "fault_units": 4,
+    "roles": [
+      "healthy_calibration",
+      "test"
+    ],
+    "rng": "PCG64 SeedSequence physical_seed/domain_index/role; independent role noise, same domain physical library"
+  },
+  "noise": {
+    "unit_voltage_offset_sd": 0.004,
+    "unit_temperature_offset_sd": 0.05,
+    "event_common_voltage_shift_sd": 0.01,
+    "voltage_noise_sd": 0.002,
+    "temperature_noise_sd": 0.01
+  },
+  "directions": {
+    "pre_voltage_v": -1,
+    "voltage_sag_v": 1,
+    "dynamic_resistance_mohm": 1,
+    "discharge_slope_v_per_s": -1,
+    "minimum_voltage_v": -1,
+    "recovery_30s_v": -1,
+    "recovery_ratio": -1,
+    "temperature_rise_c": 1
+  },
+  "K": 3,
+  "threshold": {
+    "kind": "healthy_calibration_quantile",
+    "quantile": 0.99,
+    "method": "linear",
+    "prediction_rule": ">=",
+    "modes": [
+      "nominal_transfer",
+      "target_healthy"
+    ],
+    "calibration_truth_use": "none; synthetic healthy identity by generation, no field health claim"
+  },
+  "direction_deadbands": {
+    "pre_voltage_v": 1e-05,
+    "voltage_sag_v": 0.0041167837726162,
+    "dynamic_resistance_mohm": 0.1202179272102554,
+    "discharge_slope_v_per_s": 7.190908137199789e-06,
+    "minimum_voltage_v": 0.005270245004361,
+    "recovery_30s_v": 0.0007976165120736,
+    "recovery_ratio": 0.0010451507941948,
+    "temperature_rise_c": 0.0120607312931042
+  },
+  "direction_deadband_source": "twice max absolute coarse/refined or tolerance feature change over all 39 development profiles; floor per units; descriptive numerical screen not sensor accuracy; half/double sensitivity retained",
+  "failure_policy": {
+    "physical_or_solver_failure": "record raw error/partial history, no retries and no replacement",
+    "incomplete_library": "no detector summary for this domain/seed; report all missing variants and denominator; retain valid profile direction diagnostics",
+    "nonfinite_event_features": "fail domain evaluation, no row dropping",
+    "unexpected_worker_failure": "stop coordinator, preserve evidence"
+  },
+  "statistics": {
+    "unit": "10 physical realizations paired across domains",
+    "scope": "descriptive means/t95 intervals and seed-level direction differences; no new confirmatory p family",
+    "family_metrics": "one family positive versus test label-negative observations; omit other positive families; counts mandatory",
+    "direction_rate": "fault minus matched healthy profile times fixed q, >tau aligned, <-tau opposed, otherwise unresolved; all 12 variants x 8 features retained; no zero padding"
+  },
+  "range_role": "artificial controlled engineering stresses, no empirical manufacturing distribution or validated aging law",
+  "planned_libraries": 10,
+  "planned_profiles": 130,
+  "data_path": "data/physical/high_rate"
+}

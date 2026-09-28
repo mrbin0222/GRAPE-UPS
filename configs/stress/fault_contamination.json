@@ -1,0 +1,44 @@
+{
+  "id": "X04B_full_fusion_contamination_v1",
+  "seeds": [
+    2026092401,
+    2026092402,
+    2026092403,
+    2026092404,
+    2026092405,
+    2026092406,
+    2026092407,
+    2026092408,
+    2026092409,
+    2026092410
+  ],
+  "fault_counts": [
+    0,
+    4,
+    10,
+    16,
+    20,
+    24
+  ],
+  "families": [
+    "acid_inventory_loss",
+    "active_material_loss",
+    "interfacial_kinetics_loss",
+    "pore_blockage"
+  ],
+  "primary_fractions": [
+    0,
+    0.1,
+    0.25,
+    0.4
+  ],
+  "additional_boundary_fractions": [
+    0.5,
+    0.6
+  ],
+  "source_model": "same frozen development checkpoint and corrected preprocessing as full_fusion_transfer_v2",
+  "scope": "homogeneous nominal background, zero benign heterogeneity; static C layer; no training or parameter selection",
+  "design": "36events40units, one of12physicalvariants per event3repeats each; nested fault identities; matched healthy/fault noise; independent healthy calibration, same threshold at all fractions",
+  "missing_telemetry": "RSSI and UPS load percent imputed by original frozen training medians, as prior transfer",
+  "statistics": "10physicalseeds of one checkpoint; all +4family strata, descriptive meansSD; AP prevalence changes explicitly retained"
+}

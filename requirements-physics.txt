@@ -1,0 +1,2 @@
+-r requirements.txt
+pybamm==26.6.2.0

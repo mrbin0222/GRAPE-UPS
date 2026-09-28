@@ -1,0 +1,52 @@
+{
+  "data_source": "prebuilt",
+  "allow_generate": false,
+  "site_id": "SITE_SIM_01",
+  "n_strings": 3,
+  "n_batteries": 40,
+  "n_events_per_string": 30,
+  "event_span_days": 30,
+  "continuous_days": 1,
+  "continuous_interval_s": 600,
+  "event_grid": {
+    "pre_edge_hz": 0.5,
+    "pre_edge_start_s": -30,
+    "edge_end_s": 0,
+    "mid_hz": 0.5,
+    "mid_end_s": 120,
+    "recovery_hz": 0.5,
+    "recovery_end_s": 240
+  },
+  "upload_latency_distribution": "half_normal_nonnegative",
+  "train_fraction": 0.6,
+  "split_protocol": "cross_string_validation_v1",
+  "train_string_id": "SIM-S1",
+  "validation_string_id": "SIM-S2",
+  "current_packet_loss_rate": 0.0,
+  "firmware_version": "sim-1.2.0",
+  "calibration_version": "SIM-CAL-202607",
+  "feature_sequence_length": 128,
+  "model": {
+    "epochs": 60,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "latent_dim": 16,
+    "fusion_weights": {
+      "relative_temporal": 0.0982163446405224,
+      "relative_physics": 0.003772547845314984,
+      "group_relative": 0.6540193508326329,
+      "drift": 0.0,
+      "absolute_temporal": 0.05019501948361193,
+      "absolute_physics": 0.19379673719791796
+    },
+    "random_state": 2026092301
+  },
+  "accumulator_alpha": 0.8,
+  "dataset_name": "revision_x05_easy_s2026092301",
+  "seed": 2026092301,
+  "difficulty": "easy",
+  "data_path": "data/main_benchmark/confirmation/easy/seed_2026092301",
+  "packet_loss_rate": 0.02,
+  "upload_latency_sigma_s": 0.3,
+  "model_path": "models/example"
+}

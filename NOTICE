@@ -1,0 +1,7 @@
+GRAPE-UPS
+Copyright 2026 GRAPE-UPS contributors.
+
+Code, configurations, documentation and model weights are licensed under
+the Apache License, Version 2.0 (LICENSE). Datasets under data/ are licensed
+under Creative Commons Attribution 4.0 International (data/LICENSE).
+Third-party dependencies retain their respective licenses.
