@@ -25,7 +25,7 @@ Download the data and example model from [Release v0.1.0](https://github.com/mrb
 - [Data](https://github.com/mrbin0222/GRAPE-UPS/releases/download/v0.1.0/grape-ups-data.zip)
 - [Example model](https://github.com/mrbin0222/GRAPE-UPS/releases/download/v0.1.0/grape-ups-models.zip)
 
-Extract both archives into the repository root to create `data/` and `models/`. They are distributed separately from the code to keep Git history small. The repository is currently private; access is limited to authorized users.
+Extract both archives into the repository root to create `data/` and `models/`. They are distributed separately from the code to keep Git history small.
 
 ## Run a released model
 
