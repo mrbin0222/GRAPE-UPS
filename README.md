@@ -121,4 +121,4 @@ If you use this code or data in your research, please cite this GitHub repositor
 
 The citation will be updated to the journal article after publication.
 
-Code, configurations, documentation and model weights are licensed under [Apache-2.0](LICENSE). Datasets are licensed under [CC BY 4.0](data/LICENSE). Third-party dependencies retain their respective licenses. Please credit the GRAPE-UPS research team and cite the associated manuscript when reusing the data; indicate any changes.
+Code, configurations, documentation and model weights are licensed under [Apache-2.0](LICENSE). Datasets are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Third-party dependencies retain their respective licenses. Please credit the GRAPE-UPS research team and cite the associated manuscript when reusing the data; indicate any changes.
