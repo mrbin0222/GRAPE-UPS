@@ -2,7 +2,7 @@
 
 Research code and datasets for **GRAPE-UPS: Direction-Constrained Peer Anomaly Detection for Weak Batteries in Data-Center UPS Strings**.
 
-The associated manuscript is currently **under review**.
+The associated article is now published in **IEEE Access** (2026). DOI: [10.1109/ACCESS.2026.3753456](https://doi.org/10.1109/ACCESS.2026.3753456).
 
 GRAPE-UPS ranks batteries from direction-constrained differences within a shared load event. Two reconstruction branches provide an optional validation-selected alert score. The repository contains the proposed method, synthetic-data generators, de-identified field observations, one example set of final model weights, and evaluation tools. Comparator implementations and precomputed evaluation results are not included.
 
@@ -106,19 +106,18 @@ For a new development study, `scripts/select_configuration.py` selects the five-
 
 ## Citation and license
 
-If you use this code or data in your research, please cite this GitHub repository:
+If you use this code or data in your research, please cite the associated journal article:
 
 ```bibtex
-@misc{luo2026grapeups,
+@article{luo2026grapeups,
   author={Luo, Shibo and Shen, Bin and Chen, Xiaoning and Fang, Yiquan and Wang, Huifeng},
   title={{GRAPE-UPS}: Direction-Constrained Peer Anomaly Detection for Weak Batteries in Data-Center {UPS} Strings},
   year={2026},
-  howpublished={GitHub repository},
-  url={https://github.com/mrbin0222/GRAPE-UPS},
-  note={Associated manuscript under review}
+  journal={IEEE Access},
+  doi={10.1109/ACCESS.2026.3753456},
+  url={https://doi.org/10.1109/ACCESS.2026.3753456}
 }
 ```
 
-The citation will be updated to the journal article after publication.
+Code, configurations, documentation and model weights are licensed under [Apache-2.0](LICENSE). Datasets are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Third-party dependencies retain their respective licenses. Please credit the GRAPE-UPS research team and cite the associated journal article when reusing the data; indicate any changes.
 
-Code, configurations, documentation and model weights are licensed under [Apache-2.0](LICENSE). Datasets are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Third-party dependencies retain their respective licenses. Please credit the GRAPE-UPS research team and cite the associated manuscript when reusing the data; indicate any changes.
