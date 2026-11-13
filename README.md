@@ -6,6 +6,12 @@ The associated article is now published in **IEEE Access** (2026). DOI: [10.1109
 
 GRAPE-UPS ranks batteries from direction-constrained differences within a shared load event. Two reconstruction branches provide an optional validation-selected alert score. The repository contains the proposed method, synthetic-data generators, de-identified field observations, one example set of final model weights, and evaluation tools. Comparator implementations and precomputed evaluation results are not included.
 
+## Graphical abstract
+
+[![GRAPE-UPS architecture: shared load event, peer reference, directed physical evidence, and separate ranking and alert outputs](docs/images/grape-ups-graphical-abstract.png)](docs/images/grape-ups-graphical-abstract.png)
+
+GRAPE-UPS compares batteries exposed to the same load event, constructs a robust peer reference, and retains physically adverse deviations. Directed peer evidence determines maintenance ranking, while validation selects peer-only or reconstruction-assisted alert screening. The architecture separates maintenance prioritization from alerting.
+
 ## Install
 
 Use Python 3.10 in a virtual environment:
@@ -120,4 +126,3 @@ If you use this code or data in your research, please cite the associated journa
 ```
 
 Code, configurations, documentation and model weights are licensed under [Apache-2.0](LICENSE). Datasets are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Third-party dependencies retain their respective licenses. Please credit the GRAPE-UPS research team and cite the associated journal article when reusing the data; indicate any changes.
-
